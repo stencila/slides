@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stencila</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Lato);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+      body {
+        font-family: Lato, Helvetica, sans;
+        color: #555;
+      }
+      img {
+          max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+      }
+      .feature {
+        color: #36da16;
+      }
+      .bad {
+        color: #d83030;
+      }
+      .centered {
+        display: block;
+        margin: 0 auto;
+      }
+      .note {
+        color: #777;
+        font-size: 0.75em;
+      }
+      .remark-code, .remark-inline-code {
+        font-family: 'Ubuntu Mono';
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+## Stencila Sheets feature design workshop
+
+<img src="logo-name-beta.svg" width="300" />
+
+#### Alfred P. Sloan Foundation
+
+#### 3 November 2017
+
+<div>
+  <a href="https://twitter.com/NokomeBentley">@NokomeBentley</a>
+  <a href="https://twitter.com/stencila">@stencila</a>
+</div>
+
+<p style="position: absolute; bottom: 10px; font-size: 12px">Press <code>C</code> to clone a display; then press <code>P</code> to switch to presenter mode</p>
+
+---
+class: center, middle
+
+### Researchers are under increasing pressure to make their research reproducible
+
+![](repro-crisis.png)
+
+???
+There is growing recognition, including in the mainstream media, of a so called "reproducibility crisis" in science. And the calls for researchers to make their research more reproducible are growing louder. Researchers, from digital humanities, to neuroscience, to data driven journalism are being encouraged to make their work open, transparent and reproducible.
+
+---
+class: center, middle
+
+### But creating reproducible research can be difficult... particularly if you don't know how to code.
+
+???
+But creating reproducible research can be difficult, particularly if you're not a coder. That's not surprising, the tools for reproducible research have been created by researchers at the "codey" end of the spectrum. They, like me, have been "scratching their own itch" and creating tools that they, as coders, find useful. But for people who are less comfortable with code, that can be intimidating - it creates a barrier to entry which alienates them from reproducible practices.
+
+---
+class: center, middle
+
+<img src="marwick-higgins-tweets.png" height="600px">
+
+???
+That situation is captured well in this Twitter conversation. Ben Marwick, an archaeologist and strong advocate for reproducible research, tweeted that journal editors should demand sharing code. The Twitterverse responded enthusiastically with retweets and likes. But there was a lone response from Peter Higgins, a biomedical researcher Peter Higgins, that while that is an admirable goal, in his field they are "so not ready" to share code, simply because most still use Excel.
+
+---
+class: center, middle
+
+![](tool-usage.png)
+
+.note[Life science researchers. Courtesy of Naomi Penfold, eLife]
+
+???
+This is indeed borne out in the data. This plot, courtesy of the publisher eLife, illustrates just how dominant Excel still is in life sciences. The situation is probably similar in many other fields of research
+
+---
+class: center, middle
+
+### Moving tools for reproducibility **towards the user**... an "office suite" for reproducible research?
+
+???
+Currently, the primary strategy for making more research reproducible is to encourage researchers to move towards the existing code-based tools. Organizations like Data Carpentry do a great job of that by teaching researchers to learn to code and use these tools.
+
+But an additional, complementary strategy might be to **move the tools towards the user**. And a lot, if not most, research activity lives in a world of the office suite: spreadsheets and word processors.
+
+---
+class: center, middle
+
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="doc-screencast.mp4" type="video/mp4">
+</video>
+
+???
+That is the approach that we have been taking with Stencila. We're trying to create user interfaces for doing reproducible research that are familiar, and thus intuitive, to most researchers.
+
+Here is an example of a Stencila document. It's a research article which provides simple tabular and graphical summaries of some ecological data. The interface is similar to a stripped down version of Microsoft Word. You can do the usual things that people do with textual documents: insert text and paragraphs, create headings etc. 
+
+But in addition, you can insert cells of code, in this case R code, that produce the figures and tables. You can update that code, in place in the document. A key aspect is that code and it's output are in the same place, right next to each other. Internally, the code gets carried through with the document from authoring through to publication.
+
+---
+class: center, middle
+
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="sheet-screencast.mp4" type="video/mp4">
+</video>
+
+???
+One of the first bits of feedback we got from people when we presented Stencila documents was "what about all the people that don't know how to code, those who use Excel, how does this help them?" I was one of those researchers who had moved away from spreadsheets and had forgotten how many people still use them.
+
+We realised that we could take the technology which we had developed for embedding code cells in a document and essentially just reshape it into the familiar grid of a spreadsheet. This is a prototype of a Stencila sheets that we created 18 months ago. 
+
+What sets this prototype apart from Excel is that the formulas in the cells are actually bits of R code. The system works out the dependencies between those cells of R code and when you change one cell all the other cells that depend on it get updated.
+
+---
+class: middle
+
+### Stencila Sheets feature design workshop
+
+- #### is this an idea worth pursuing?
+
+- #### what features would you like us to add?
+
+- #### what features do you think we should drop?
+
+- #### what do you think of the features that we've protoyped?
+
+???
+And so,... that brings us to today! We are very fortunate to have received funding from the Sloan Foundation to take Stencila sheets beyond the prototype stage and to a "minimum viable product" - something we can use to gage how much potential demand there might be for such a product. 
+
+That's the purpose of today's workshop - to gage interest, and to get your ideas and feedback on the work that we have done so far.
+
+
+---
+class: center, middle
+
+### Should we be using spreadsheets at all...
+
+<img src="lamire.svg" height="500" />
+
+.note[From [Daniel Lamire's blog](https://lemire.me/blog/2014/05/23/you-shouldnt-use-a-spreadsheet-for-important-work-i-mean-it/)]
+
+???
+Before going on we should acknowledge the fact that there are many people that try to tell us we shouldn't be using spreadsheets at all. But obvously researchers still find them useful, otherwise they wouldn't be using them. So, before we get into the bad things about spreadshhets
+
+
+---
+class: center, middle
+
+### Let's not throw the baby out with the bathwater.... what are the great things about spreadsheets?
+
+
+---
+class: center, middle
+
+### What are the great things about spreadsheets? .feature[reactive programming]
+
+![](visicalc.png)
+
+<div class="blockquote">
+"VisiCalc represented a new idea of a way to use a computer and a new way of thinking about the world. Where conventional programming was thought of as a sequence of steps, this new thing was no longer sequential in effect: <strong>when you made a change in one place, all other things changed instantly and automatically</strong>" - Ted Nelson, internet pioneer
+</div>
+
+---
+class: center, middle
+
+### What are the great things about spreadsheets? .feature[seeing and fixing your data]
+
+![](spreadsheet-data.gif)
+
+---
+class: center, middle
+
+### What are the great things about spreadsheets? .feature[lots of batteries included]
+
+![](batteries.svg)
+
+#### Excel and it's extensive function library actually does a good job a creating a reproducible computing environment!
+
+???
+Excel actually provides a pretty good environment for computational reproducibility. If I write an Excel sheet I can send it to my boss and been pretty certain that he can reproduce it.
+
+---
+class: center, middle
+
+### What are the bad things about spreadsheets? .bad[ad-hoc formatting]
+
+
+---
+class: center, middle
+
+### What are the bad things about spreadsheets? .bad[lack of transparency]
+
+
+---
+class: center, middle
+
+### What are the bad things about spreadsheets? .bad[lack of testing]
+
+
+---
+class: center, middle
+
+### What are the bad things about spreadsheets? .bad[a silo separated from open source languages]
+
+---
+class: center, middle
+
+### What are the bad things about spreadsheets? .bad[don't work nicely with version control]
+
+---
+class: middle
+
+### Group excercise:
+
+- #### if you had unlimited resources what would your perfect spreadsheet software look like?
+
+- #### come up with a vision - it could be a vision for a complete spreadsheet software, or it could just be a a new idea of a killer feature - draw pictures!
+
+- #### the only requirement is that it must "look and feel" like a spreadsheet
+
+- #### pitch back to everyone in 30 mins!
+
+
+---
+class: center, middle
+
+### A preview of Stencila Sheets
+
+### Reinvention not reimplementation
+
+???
+There is no point in trying to simply create an open source Excel - that already exists in software like Open Office. We're not trying to reinvent the wheel, but we *are* trying to reinvent the vehicle! 
+
+We do want to re-examine and re-imagine, from the foundations up, what is a spreadsheet is. We're intentionally trying to create something that on the surface looks like Microsoft Excel or Google Sheets. But underneath we want to reinforce the things makes spreadsheets great, leave behind the things that are bad, and add some of the things that we've learned, over the last 38 seven years since VisiCalc was created, about reproducibility and software design.
+
+---
+class:
+
+### Avoiding conflation of formats and information: .feature[no formatting!]
+
+
+
+---
+class:
+
+### Avoiding data analysis silos: .feature[open-source, community-curated, function libraries]
+
+![](libcore-funcs.png) 
+
+???
+`libcore` is Stencila's equivalent of Excel's standard functions
+
+---
+class:
+
+### Avoiding data analysis silos: .feature[domain-specific], open-source, community-curated, function libraries
+
+![](domain-libraries.svg) 
+
+---
+class:
+
+### Avoiding conflation of formatting and information: .feature[no formatting]
+
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="demo-unformatting.mp4" type="video/mp4">
+</video>
+
+???
+Notes
+
+---
+class:
+
+### Avoiding auto-conversion and data-entry errors: .feature[strong typing]
+
+![](demo-typing.gif)
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="demo-typing.mp4" type="video/mp4">
+</video>
+
+
+---
+class:
+
+### Improving transparency of spreadsheets
+
+![](mei-tweet.png)
+
+---
+class:
+
+### Improving transparency of spreadsheets: .feature[alternative views]
+
+![](demo-alternative-views.gif)
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="demo-alternative-views.mp4" type="video/mp4">
+</video>
+
+---
+class:
+
+### Improving testing of spreadsheets: .feature[test cells]
+
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="demo-test-cells.mp4" type="video/mp4">
+</video>
+
+---
+class:
+
+### Ensuring integration with existing workflows: .feature[import/export converters]
+
+##### Plain text formats
+
+- CSV etc (delimiter separated values)
+- Frictionless Data's [Tabular Data Package](https://specs.frictionlessdata.io/tabular-data-package/)
+- Language scripts
+
+##### Other spreadsheet formats
+
+- Microsoft Excel
+- Open Document Spreadsheet
+- Google Sheets
+
+---
+
+e.g. conversion to Frictionless Data's [Tabular Data Package](https://specs.frictionlessdata.io/tabular-data-package/)
+
+#### `data.csv`
+
+```text
+journal,excel_files,gene_lists,gene_papers,...
+PLoS One,7783,2202,994,220,170,4240
+BMC Genomics,11464,1650,801,218,158,4932
+Genome Res,2607,580,251,114,68,3180
+Nucleic Acids Res,2117,540,315,88,67,1661
+Genome Biol,2678,664,257,97,63,1878
+Genes Dev,932,395,190,75,55,1593
+...
+```
+
+#### `datapackage.json`
+
+```json
+{
+  "profile": "tabular-data-package",
+  "name": "gene-name-autoconversion-errors",
+  "resources": [{
+      "path": "data.csv",
+      "schema": {
+        "fields": [{
+            "name": "journal",
+            "type": "string"
+          },{
+            "name": "excel_files",
+            "type": "integer"
+          },{
+...
+```
+
+---
+
+e.g. conversion to a Python or R script
+
+#### `sheet.py`
+
+```python
+from libcore import *
+
+A_G = table({
+  'journal': ['PLoS One', 'BMC Genomics', ...]
+  'excel_files': [7783, 11464, ...]
+  ...
+})
+
+A20 = extend(A_G, {
+  'percent_affected': 'papers_affected/gene_papers'
+})
+
+...
+
+I20 = test_between(H20, 0, 100)
+
+A45 = plot(A20, 'journal', 'percent_affected')
+write(A45, 'A45.png')
+
+```
+
+#### `sheet.R`
+
+```python
+library(libcore)
+
+A_G <- table(list(
+  'journal' = c('PLoS One', 'BMC Genomics', ...)
+  'excel_files' = c(7783, 11464, ...)
+))
+...
+```
+
+---
+class:
+
+### Try yourself
+
+### Recreating Microsoft Excel or Google Sheets is difficult...but we are not trying to!
+
+### Many things you are used to in a spreadsheet to will be missing, there will be bugs...
+
+### But try to focus on the novel approaches we are trying to take
+
+---
+
+class: center, middle
+
+### Many thanks to...
+
+<img src="funders-partners.png" width="600px">
+
+
+
+
+
+    </textarea>
+    <script src="remark-latest.min.js" type="text/javascript"></script>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
