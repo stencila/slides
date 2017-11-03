@@ -159,7 +159,7 @@ class: center, middle
 .note[From [Daniel Lamire's blog](https://lemire.me/blog/2014/05/23/you-shouldnt-use-a-spreadsheet-for-important-work-i-mean-it/)]
 
 ???
-Before going on we should acknowledge the fact that there are many people that try to tell us we shouldn't be using spreadsheets at all. But obvously researchers still find them useful, otherwise they wouldn't be using them. So, before we get into the bad things about spreadshhets
+Before going on we should acknowledge the fact that there are many people that try to tell us we shouldn't be using spreadsheets at all. But obviously researchers still find them useful, otherwise they wouldn't be using them. So, before we get into the bad things about spreadsheets
 
 
 ---
@@ -227,7 +227,7 @@ class: center, middle
 
 ### What are the bad things about spreadsheets? .bad[lack of testing]
 
-#### Spreadsheets users are software developers, but they don't use standard software deveopment methods like unit testing
+#### Spreadsheets users are software developers, but they don't use standard software development methods like unit testing
 
 ![](unit-testing.png)
 
@@ -235,29 +235,16 @@ class: center, middle
 ---
 class: center, middle
 
-### What are the bad things about spreadsheets? .bad[a silo separated from open source languages]
+### What are the bad things about spreadsheets? .bad[silo separated from open source languages]
 
 ![](learning-silos.svg)
 
 ---
 class: center, middle
 
-### What are the bad things about spreadsheets? .bad[don't work nicely with version control e.g git, Github]
+### What are the bad things about spreadsheets? .bad[don't work nicely with version control e.g git]
 
 ![](spreadsheet-xml.svg)
-
----
-class: middle
-
-### Group excercise:
-
-- #### Each participant writes on post-it notes up to 3 desired spreadsheet functions, solutions, or characteristics. (3 minutes)
-The participants briefly summarize what they wish spreadsheets could do to their Discussion Group. As they share their summaries, the participant adds their post-it notes to the poster for that prompt. (5 minutes)
-The Group picks one feature for their Report and summarizes it with drawing, labelling, and writing. (7 minutes)
-
-- #### the only requirement is that it must "look and feel" like a spreadsheet
-
-- #### pitch back to everyone in 30 mins!
 
 ---
 class: middle
@@ -279,10 +266,35 @@ There is no point in trying to simply create an open source Excel - that already
 
 We do want to re-examine and re-imagine, from the foundations up, what is a spreadsheet is. We're intentionally trying to create something that on the surface looks like Microsoft Excel or Google Sheets. But underneath we want to reinforce the things makes spreadsheets great, leave behind the things that are bad, and add some of the things that we've learned, over the last 38 seven years since VisiCalc was created, about reproducibility and software design.
 
+
+---
+class: middle
+
+### Group exercise: Pitch a killer feature for spreadsheets!
+
+- #### Split into groups
+
+- #### Each participant in a group writes down 3 candidate solutions/features on post-it notes (3 minutes)
+
+- #### Within each group discuss your choices and add your post-it note to the poster (5 minutes)
+
+- #### Each group picks one feature and summarizes it with a sketch, labeling, and bullet points. (7 minutes)
+
+- #### Each group pitches back to everyone (3 minutes)
+
 ---
 class: center, middle
 
-### A preview of Stencila Sheets
+### We pitched some features to our community...
+
+<img src="feature-votes.png" height="450">
+
+.note[[https://community.stenci.la/t/a-feature-list-for-stencila-sheets](https://community.stenci.la/t/a-feature-list-for-stencila-sheets)]
+
+---
+class: center, middle
+
+### A preview of Stencila Sheets' "novel" features
 
 ### Walk through some demos at: https://goo.gl/P9vCJH
 
@@ -293,36 +305,7 @@ class:
 
 ### Avoiding conflation of formats and information: .good[no formatting!]
 
-
-
----
-class:
-
-### Avoiding data analysis silos: .good[open-source, community-curated, function libraries]
-
-![](libcore-funcs.png) 
-
-???
-`libcore` is Stencila's equivalent of Excel's standard functions
-
----
-class:
-
-### Avoiding data analysis silos: .good[domain-specific], open-source, community-curated, function libraries
-
-![](domain-libraries.svg) 
-
----
-class:
-
-### Avoiding conflation of formatting and information: .good[no formatting]
-
-<video class="centered" height="580px" controls="controls" autoplay="" loop="">
-  <source src="demo-unformatting.mp4" type="video/mp4">
-</video>
-
-???
-Notes
+![](no-formatting.png)
 
 ---
 class:
@@ -330,36 +313,57 @@ class:
 ### Avoiding auto-conversion and data-entry errors: .good[strong typing]
 
 ![](demo-typing.gif)
-<video class="centered" height="580px" controls="controls" autoplay="" loop="">
-  <source src="demo-typing.mp4" type="video/mp4">
-</video>
-
 
 ---
 class:
 
-### Improving transparency of spreadsheets
+### Integration with open-source languages: .good[cells in external languages]
 
-![](mei-tweet.png)
+![](demo-external-cells.gif) 
 
 ---
 class:
 
-### Improving transparency of spreadsheets: .good[alternative views]
+### Avoiding data analysis silos: .good[open-source, community-curated, function libraries]
 
-![](demo-alternative-views.gif)
-<video class="centered" height="580px" controls="controls" autoplay="" loop="">
-  <source src="demo-alternative-views.mp4" type="video/mp4">
-</video>
+#### "libcore" our equivalent of Excel's core function library (e.g. `SUM`, `T.TEST`)
+
+![](libcore-funcs.png)
+
+---
+class:
+
+#### Functions are represented in a schema and can be implemented in one or more languages
+
+![](function-defs.svg)
+
+---
+class:
+
+### Avoiding data analysis silos: .good[domain-specific function libraries]
+
+![](domain-libraries.svg)
 
 ---
 class:
 
 ### Improving testing of spreadsheets: .good[test cells]
 
-<video class="centered" height="580px" controls="controls" autoplay="" loop="">
-  <source src="demo-test-cells.mp4" type="video/mp4">
-</video>
+![](demo-test-cells.gif)
+
+---
+class: center, middle
+
+### Improving transparency of spreadsheets
+
+<img src="mei-tweet.png" height="350px">
+
+---
+class: center, middle
+
+### Improving transparency of spreadsheets: .good[alternative views]
+
+<img src="demo-alternative-views.gif" height="500px">
 
 ---
 class:
@@ -379,23 +383,23 @@ class:
 - Google Sheets
 
 ---
+class:
 
-e.g. conversion to Frictionless Data's [Tabular Data Package](https://specs.frictionlessdata.io/tabular-data-package/)
+### Ensuring integration with existing workflows: .good[import/export converters]
 
-#### `data.csv`
+#### e.g. conversion to Frictionless Data's [Tabular Data Package](https://specs.frictionlessdata.io/tabular-data-package/)
 
-```text
+##### `data.csv`
+
+```
 journal,excel_files,gene_lists,gene_papers,...
 PLoS One,7783,2202,994,220,170,4240
 BMC Genomics,11464,1650,801,218,158,4932
 Genome Res,2607,580,251,114,68,3180
-Nucleic Acids Res,2117,540,315,88,67,1661
-Genome Biol,2678,664,257,97,63,1878
-Genes Dev,932,395,190,75,55,1593
 ...
 ```
 
-#### `datapackage.json`
+##### `datapackage.json`
 
 ```json
 {
@@ -415,10 +419,11 @@ Genes Dev,932,395,190,75,55,1593
 ```
 
 ---
+class:
 
-e.g. conversion to a Python or R script
+### Ensuring integration with existing workflows: .good[import/export converters]
 
-#### `sheet.py`
+#### e.g. conversion to a Python script
 
 ```python
 from libcore import *
@@ -442,39 +447,18 @@ write(A45, 'A45.png')
 
 ```
 
-#### `sheet.R`
-
-```python
-library(libcore)
-
-A_G <- table(list(
-  'journal' = c('PLoS One', 'BMC Genomics', ...)
-  'excel_files' = c(7783, 11464, ...)
-))
-...
-```
-
 ---
-class:
-
-### Try yourself
-
-### Recreating Microsoft Excel or Google Sheets is difficult...but we are not trying to!
-
-### Many things you are used to in a spreadsheet to will be missing, there will be bugs...
-
-### But try to focus on the novel approaches we are trying to take
-
----
-
 class: center, middle
 
-### Many thanks to...
+### Wrap up discussion
+
+
+---
+class: center, middle
+
+### Thank you for your input!
 
 <img src="funders-partners.png" width="600px">
-
-
-
 
 
     </textarea>
@@ -482,7 +466,9 @@ class: center, middle
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
     </script>
     <script type="text/javascript">
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+        slideNumberFormat: ''
+      });
     </script>
   </body>
 </html>
