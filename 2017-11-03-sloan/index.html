@@ -9,7 +9,7 @@
 
       body {
         font-family: Lato, Helvetica, sans;
-        color: #555;
+        color: #686868;
       }
       img {
           max-width: 100%;
@@ -17,7 +17,7 @@
       a {
         text-decoration: none;
       }
-      .feature {
+      .good {
         color: #36da16;
       }
       .bad {
@@ -43,7 +43,7 @@ class: center, middle
 
 ## Stencila Sheets feature design workshop
 
-<img src="logo-name-beta.svg" width="300" />
+<img src="logo-name.svg" width="300" />
 
 #### Alfred P. Sloan Foundation
 
@@ -80,7 +80,7 @@ class: center, middle
 <img src="marwick-higgins-tweets.png" height="600px">
 
 ???
-That situation is captured well in this Twitter conversation. Ben Marwick, an archaeologist and strong advocate for reproducible research, tweeted that journal editors should demand sharing code. The Twitterverse responded enthusiastically with retweets and likes. But there was a lone response from Peter Higgins, a biomedical researcher Peter Higgins, that while that is an admirable goal, in his field they are "so not ready" to share code, simply because most still use Excel.
+That situation is captured well in this Twitter conversation. Ben Marwick, an archaeologist and strong advocate for reproducible research, tweeted that journal editors should demand sharing code. The Twitterverse responded enthusiastically with retweets and likes. But there was a lone reply from Peter Higgins, a biomedical researcher, who pointed out that while that is an admirable goal, in his field they are "so not ready" to share code, simply because most people still use Excel.
 
 ---
 class: center, middle
@@ -100,7 +100,7 @@ class: center, middle
 ???
 Currently, the primary strategy for making more research reproducible is to encourage researchers to move towards the existing code-based tools. Organizations like Data Carpentry do a great job of that by teaching researchers to learn to code and use these tools.
 
-But an additional, complementary strategy might be to **move the tools towards the user**. And a lot, if not most, research activity lives in a world of the office suite: spreadsheets and word processors.
+But an additional, complementary, strategy might be to **move the tools towards the user**. And a lot, if not most, research activity lives in a world of the office suite: spreadsheets and word processors.
 
 ---
 class: center, middle
@@ -135,13 +135,13 @@ class: middle
 
 ### Stencila Sheets feature design workshop
 
-- #### is this an idea worth pursuing?
+- ### is this an idea worth pursuing?
 
-- #### what features would you like us to add?
+- ### what features would you like us to add?
 
-- #### what features do you think we should drop?
+- ### what features do you think we should drop?
 
-- #### what do you think of the features that we've protoyped?
+- ### what do you think of the features that we've protoyped?
 
 ???
 And so,... that brings us to today! We are very fortunate to have received funding from the Sloan Foundation to take Stencila sheets beyond the prototype stage and to a "minimum viable product" - something we can use to gage how much potential demand there might be for such a product. 
@@ -165,13 +165,14 @@ Before going on we should acknowledge the fact that there are many people that t
 ---
 class: center, middle
 
-### Let's not throw the baby out with the bathwater.... what are the great things about spreadsheets?
+### Let's not throw the baby out with the bathwater.... what are .good[the good things], what are .bad[the bad things], about spreadsheets?
 
 
+### Thoughts?
 ---
 class: center, middle
 
-### What are the great things about spreadsheets? .feature[reactive programming]
+### What are the great things about spreadsheets? .good[reactive programming]
 
 ![](visicalc.png)
 
@@ -182,14 +183,14 @@ class: center, middle
 ---
 class: center, middle
 
-### What are the great things about spreadsheets? .feature[seeing and fixing your data]
+### What are the great things about spreadsheets? .good[seeing and fixing your data]
 
 ![](spreadsheet-data.gif)
 
 ---
 class: center, middle
 
-### What are the great things about spreadsheets? .feature[lots of batteries included]
+### What are the great things about spreadsheets? .good[lots of batteries included]
 
 ![](batteries.svg)
 
@@ -201,51 +202,77 @@ Excel actually provides a pretty good environment for computational reproducibil
 ---
 class: center, middle
 
-### What are the bad things about spreadsheets? .bad[ad-hoc formatting]
+### What are the bad things about spreadsheets? .bad[conflation of formatting and information]
 
+![](formatting.png)
 
+.note[Image courtesy of Data Carpentry]
+---
+class: center, middle
+
+### What are the bad things about spreadsheets? .bad[auto-corr*up*tion]
+
+<img src="gene-dates-in-excel.jpeg" height="400" />
+
+.note[Image from Zeeberg et al (2004) Mistaken Identifiers: Gene name errors can be introduced inadvertently when using Excel in bioinformatics]
 ---
 class: center, middle
 
 ### What are the bad things about spreadsheets? .bad[lack of transparency]
 
+![](reinhart-rogoff-error.png)
 
 ---
 class: center, middle
 
 ### What are the bad things about spreadsheets? .bad[lack of testing]
 
+#### Spreadsheets users are software developers, but they don't use standard software deveopment methods like unit testing
 
+![](unit-testing.png)
+
+.note[Examples of unit tests run for Stencila libcore]
 ---
 class: center, middle
 
 ### What are the bad things about spreadsheets? .bad[a silo separated from open source languages]
 
+![](learning-silos.svg)
+
 ---
 class: center, middle
 
-### What are the bad things about spreadsheets? .bad[don't work nicely with version control]
+### What are the bad things about spreadsheets? .bad[don't work nicely with version control e.g git, Github]
+
+![](spreadsheet-xml.svg)
 
 ---
 class: middle
 
 ### Group excercise:
 
-- #### if you had unlimited resources what would your perfect spreadsheet software look like?
-
-- #### come up with a vision - it could be a vision for a complete spreadsheet software, or it could just be a a new idea of a killer feature - draw pictures!
+- #### Each participant writes on post-it notes up to 3 desired spreadsheet functions, solutions, or characteristics. (3 minutes)
+The participants briefly summarize what they wish spreadsheets could do to their Discussion Group. As they share their summaries, the participant adds their post-it notes to the poster for that prompt. (5 minutes)
+The Group picks one feature for their Report and summarizes it with drawing, labelling, and writing. (7 minutes)
 
 - #### the only requirement is that it must "look and feel" like a spreadsheet
 
 - #### pitch back to everyone in 30 mins!
 
-
 ---
-class: center, middle
+class: middle
 
-### A preview of Stencila Sheets
+### Reinvention not reimplementation!
 
-### Reinvention not reimplementation
+### Not "just another office suite" silo, we're aiming for...
+
+- a **learning continuum** between clicking and coding (close integration with R, Python etc)
+
+- a **collaboration continuum** between clickers and coders (support for plain text formats as well as WYSIWYG)
+
+- **interoperability** with existing tools (e.g. Jupyter, RStudio) 
+
+- a **reproducibility continuum** across authoring, collaboration, editing, reviewing, publishing and reading
 
 ???
 There is no point in trying to simply create an open source Excel - that already exists in software like Open Office. We're not trying to reinvent the wheel, but we *are* trying to reinvent the vehicle! 
@@ -253,16 +280,25 @@ There is no point in trying to simply create an open source Excel - that already
 We do want to re-examine and re-imagine, from the foundations up, what is a spreadsheet is. We're intentionally trying to create something that on the surface looks like Microsoft Excel or Google Sheets. But underneath we want to reinforce the things makes spreadsheets great, leave behind the things that are bad, and add some of the things that we've learned, over the last 38 seven years since VisiCalc was created, about reproducibility and software design.
 
 ---
+class: center, middle
+
+### A preview of Stencila Sheets
+
+### Walk through some demos at: https://goo.gl/P9vCJH
+
+![](bug.png)
+
+---
 class:
 
-### Avoiding conflation of formats and information: .feature[no formatting!]
+### Avoiding conflation of formats and information: .good[no formatting!]
 
 
 
 ---
 class:
 
-### Avoiding data analysis silos: .feature[open-source, community-curated, function libraries]
+### Avoiding data analysis silos: .good[open-source, community-curated, function libraries]
 
 ![](libcore-funcs.png) 
 
@@ -272,14 +308,14 @@ class:
 ---
 class:
 
-### Avoiding data analysis silos: .feature[domain-specific], open-source, community-curated, function libraries
+### Avoiding data analysis silos: .good[domain-specific], open-source, community-curated, function libraries
 
 ![](domain-libraries.svg) 
 
 ---
 class:
 
-### Avoiding conflation of formatting and information: .feature[no formatting]
+### Avoiding conflation of formatting and information: .good[no formatting]
 
 <video class="centered" height="580px" controls="controls" autoplay="" loop="">
   <source src="demo-unformatting.mp4" type="video/mp4">
@@ -291,7 +327,7 @@ Notes
 ---
 class:
 
-### Avoiding auto-conversion and data-entry errors: .feature[strong typing]
+### Avoiding auto-conversion and data-entry errors: .good[strong typing]
 
 ![](demo-typing.gif)
 <video class="centered" height="580px" controls="controls" autoplay="" loop="">
@@ -309,7 +345,7 @@ class:
 ---
 class:
 
-### Improving transparency of spreadsheets: .feature[alternative views]
+### Improving transparency of spreadsheets: .good[alternative views]
 
 ![](demo-alternative-views.gif)
 <video class="centered" height="580px" controls="controls" autoplay="" loop="">
@@ -319,7 +355,7 @@ class:
 ---
 class:
 
-### Improving testing of spreadsheets: .feature[test cells]
+### Improving testing of spreadsheets: .good[test cells]
 
 <video class="centered" height="580px" controls="controls" autoplay="" loop="">
   <source src="demo-test-cells.mp4" type="video/mp4">
@@ -328,7 +364,7 @@ class:
 ---
 class:
 
-### Ensuring integration with existing workflows: .feature[import/export converters]
+### Ensuring integration with existing workflows: .good[import/export converters]
 
 ##### Plain text formats
 
