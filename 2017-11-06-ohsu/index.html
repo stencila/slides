@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stencila</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Lato);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+      body {
+        font-family: Lato, Helvetica, sans;
+        color: #686868;
+      }
+      img {
+          max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+      }
+      .good {
+        color: #36da16;
+      }
+      .bad {
+        color: #d83030;
+      }
+      .centered {
+        display: block;
+        margin: 0 auto;
+      }
+      .note {
+        color: #777;
+        font-size: 0.75em;
+      }
+      .remark-code, .remark-inline-code {
+        font-family: 'Ubuntu Mono';
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+## Bridging the reprodubility gap: making reproducible research more accessible.
+
+<img src="logo-name.svg" width="300" />
+
+#### OHSU Data Science Institute, Portland, Oregon
+
+#### 6 November 2017
+
+<div>
+  <a href="https://twitter.com/NokomeBentley">@NokomeBentley</a>
+  <a href="https://twitter.com/stencila">@stencila</a>
+</div>
+
+<p style="position: absolute; bottom: 10px; font-size: 12px">Press <code>C</code> to clone a display; then press <code>P</code> to switch to presenter mode</p>
+
+---
+class: center, middle
+
+### Researchers are under increasing pressure to make their research reproducible
+
+![](repro-crisis.svg)
+
+???
+There is growing recognition, including in the mainstream media, of a so called "reproducibility crisis" in science. And the calls for researchers to make their research more reproducible are growing louder. Researchers, from digital humanities, to neuroscience, to data driven journalism are being encouraged to make their work open, transparent and reproducible.
+
+---
+class: center, middle
+
+![](whitaker-repro.jpg)
+
+.note[Slide courtesy of Kirstie Whitaker, Turing Institute @kirstie_j]
+
+---
+class: center, middle
+
+### But creating reproducible research can be difficult... particularly if you don't know how to code.
+
+???
+But creating reproducible research can be difficult, particularly if you're not a coder. That's not surprising, the tools for reproducible research have been created by researchers at the "codey" end of the spectrum. They, like me, have been "scratching their own itch" and creating tools that they, as coders, find useful. But for people who are less comfortable with code, that can be intimidating - it creates a barrier to entry which alienates them from reproducible practices.
+
+---
+class: center, middle
+
+<img src="marwick-higgins-tweets.png" height="600px">
+
+???
+That situation is captured well in this Twitter conversation. Ben Marwick, an archaeologist and strong advocate for reproducible research, tweeted that journal editors should demand sharing code. The Twitterverse responded enthusiastically with retweets and likes. But there was a lone reply from Peter Higgins, a biomedical researcher, who pointed out that while that is an admirable goal, in his field they are "so not ready" to share code, simply because most people still use Excel.
+
+---
+class: center, middle
+
+![](tool-usage.png)
+
+.note[Life science researchers. Courtesy of Naomi Penfold, eLife]
+
+???
+This is indeed borne out in the data. This plot, courtesy of the publisher eLife, illustrates just how dominant Excel still is in life sciences. The situation is probably similar in many other fields of research
+
+---
+class: center, middle
+
+### Moving tools for reproducibility **towards the user**... an "office suite" for reproducible research?
+
+???
+Currently, the primary strategy for making more research reproducible is to encourage researchers to move towards the existing code-based tools. Organizations like Data Carpentry do a great job of that by teaching researchers to learn to code and use these tools.
+
+But an additional, complementary, strategy might be to **move the tools towards the user**. And a lot, if not most, research activity lives in a world of the office suite: spreadsheets and word processors.
+
+---
+class: center, middle
+
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="doc-screencast.mp4" type="video/mp4">
+</video>
+
+???
+That is the approach that we have been taking with Stencila. We're trying to create user interfaces for doing reproducible research that are familiar, and thus intuitive, to most researchers.
+
+Here is an example of a Stencila document. It's a research article which provides simple tabular and graphical summaries of some ecological data. The interface is similar to a stripped down version of Microsoft Word. You can do the usual things that people do with textual documents: insert text and paragraphs, create headings etc. 
+
+But in addition, you can insert cells of code, in this case R code, that produce the figures and tables. You can update that code, in place in the document. A key aspect is that code and it's output are in the same place, right next to each other. Internally, the code gets carried through with the document from authoring through to publication.
+
+---
+class: center, middle
+
+<video class="centered" height="580px" controls="controls" autoplay="" loop="">
+  <source src="sheet-screencast.mp4" type="video/mp4">
+</video>
+
+???
+One of the first bits of feedback we got from people when we presented Stencila documents was "what about all the people that don't know how to code, those who use Excel, how does this help them?" I was one of those researchers who had moved away from spreadsheets and had forgotten how many people still use them.
+
+We realised that we could take the technology which we had developed for embedding code cells in a document and essentially just reshape it into the familiar grid of a spreadsheet. This is a prototype of a Stencila sheets that we created 18 months ago. 
+
+What sets this prototype apart from Excel is that the formulas in the cells are actually bits of R code. The system works out the dependencies between those cells of R code and when you change one cell all the other cells that depend on it get updated.
+
+---
+class: center, middle
+
+<img src="portal.png" height="500" />
+
+---
+class: middle
+
+### Not "just another office suite" silo, we're aiming for...
+
+- a **learning continuum** between clicking and coding (close integration with R, Python etc)
+
+- a **collaboration continuum** between clickers and coders (support for plain text formats as well as WYSIWYG)
+
+- **interoperability** with existing tools (e.g. Jupyter, RStudio) 
+
+- a **reproducibility continuum** across authoring, collaboration, editing, reviewing, publishing and reading
+
+---
+class: center, middle
+
+<img src="gene-dates-in-excel.jpeg" height="400" />
+
+.note[Image from Zeeberg et al (2004) Mistaken Identifiers: Gene name errors can be introduced inadvertently when using Excel in bioinformatics]
+
+
+---
+class: middle
+
+### Stencila Sheets feature design workshop, 2-4pm Friday 10 Nov, OHSU
+
+- ### what features would you like us to add?
+
+- ### what features do you think we should drop?
+
+- ### what do you think of the features that we've protoyped?
+
+---
+class: middle
+
+![](ohsu.png)
+
+#### https://ti.to/codeforscience/stencila-at-oregon-health-and-science-university
+
+---
+class: center, middle
+
+### Demo
+
+### Walk through some demos at: https://goo.gl/P9vCJH
+
+![](bug.png)
+
+---
+class: center, middle
+
+### Thank you!
+
+<img src="funders-partners.png" width="600px">
+
+
+    </textarea>
+    <script src="remark-latest.min.js" type="text/javascript"></script>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        slideNumberFormat: ''
+      });
+    </script>
+  </body>
+</html>
