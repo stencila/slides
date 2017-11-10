@@ -5,6 +5,8 @@
 
 This repository has slides from various presentations about Stencila. To view the slides go to this index at https://stencila.github.io/slides/, or click on the links below:
 
+- [`2017-11-10-ohsu`](https://stencila.github.io/slides/2017-11-10-ohsu): Stencila Sheets feature design workshop, OHSU, Portland, USA,10 November 2017.
+
 - [`2017-11-07-uo`](https://stencila.github.io/slides/2017-11-07-uo): Stencila Sheets feature design workshop, [University of Oregon, Eugene, USA, 7 November 2017](https://community.stenci.la/t/stencila-in-eugene-oregon-go-ducks).
 
 - [`2017-11-06-ohsu`](https://stencila.github.io/slides/2017-11-06-ohsu): Bridging the reprodubility gap: making reproducible research more accessible, OHSU Data Science Institute, Portland, USA, 6 November 2017.
