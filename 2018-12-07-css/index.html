@@ -42,40 +42,29 @@ versions), any necessary system requirements and so on.
 
 
 ---
-### Container complexity 
+### Dockerfile complexity 
 
-
-```
+```Dockerfile
 FROM ubuntu:18.04
-
-ENV TZ="Etc/UTC" \
-    R_LIBS_USER="~/R"
-
-RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-      apt-transport-https \
-      ca-certificates \
-      curl \
-      software-properties-common
 
 # This section adds system repositories required to install extra system packages.
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
-RUN apt-add-repository "deb https://mran.microsoft.com/snapshot/2018-11-05/bin/linux/ubuntu bionic-cran35/"
+...
 
 # This section installs system packages required for your project
 # If you need extra system packages add them here.
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+      gdal-bin \
+      libgdal-dev \
+      libproj-dev \
       r-base \
- && apt-get autoremove -y \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+ ...
 
 # This section copies package requirement files into the image
-COPY .DESCRIPTION DESCRIPTION
+COPY DESCRIPTION .
 
-# This section runs commands to install the packages specified in the requirement file/s
-RUN mkdir -p ~/R && bash -c "Rscript <(curl -sL https://unpkg.com/@stencila/dockter/src/install.R)"
+...
 ```
 
 ???
@@ -86,26 +75,28 @@ which are not the most straightforward tool to learn.
 ---
 ###  Dockter simplicity
 
-* project in R - all files in`geoproj` directory
-* required R packages
+R project requiring two spatial data packages:
 
 ```R
+# main.R
 library("sp")
 library("rgdal")
-library("RColorBrewer")
+
+...
 ```
 
-* Dockter in action:
+Tell Dockter to compile the project:
 
 ```bash
-$ dockter compile geoproj
+$ dockter compile
 ```
 
-* created files:
+Dockter generates files which you can learn from / edit:
 
 ```bash
-.Dockerfile
-.DESCRIPTION
+.environ.jsonld  # JSON-LinkedData file of project meta-data 
+.DESCRIPTION     # R package description file
+.Dockerfile      # Dockerfile
 ```
 
 ???
@@ -121,6 +112,28 @@ $ dockter who
 $
 ```
 
+
+???
+This section below the question marks is for speaker notes.
+
+
+
+---
+###  Next steps
+
+Slimming images with Nix:
+
+```sh
+$ dockter compile --nix
+$ docker images
+REPOSITORY               IMAGE ID            CREATED             SIZE
+geoproj                  b252d691c3bc        7 days ago          1.1GB
+geoproj-nix              4e1172557167        7 days ago          1.1GB
+```
+
+Give us feedback!
+
+- 
 
 ???
 This section below the question marks is for speaker notes.
