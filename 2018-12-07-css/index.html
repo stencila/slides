@@ -45,6 +45,39 @@ versions), any necessary system requirements and so on.
 ### Container complexity 
 
 
+```
+FROM ubuntu:18.04
+
+ENV TZ="Etc/UTC" \
+    R_LIBS_USER="~/R"
+
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+      apt-transport-https \
+      ca-certificates \
+      curl \
+      software-properties-common
+
+# This section adds system repositories required to install extra system packages.
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+RUN apt-add-repository "deb https://mran.microsoft.com/snapshot/2018-11-05/bin/linux/ubuntu bionic-cran35/"
+
+# This section installs system packages required for your project
+# If you need extra system packages add them here.
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+      r-base \
+ && apt-get autoremove -y \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+# This section copies package requirement files into the image
+COPY .DESCRIPTION DESCRIPTION
+
+# This section runs commands to install the packages specified in the requirement file/s
+RUN mkdir -p ~/R && bash -c "Rscript <(curl -sL https://unpkg.com/@stencila/dockter/src/install.R)"
+```
+
 ???
 Containers such as Docker provide a solution for packaging together all necessary dependencies for reproducible documents. However, 
 containers themselves can be complex and are yet another skill to learn. Docker containers are generated through user-written Dockerfiles
@@ -53,10 +86,27 @@ which are not the most straightforward tool to learn.
 ---
 ###  Dockter simplicity
 
+* project in R - all files in`geoproj` directory
+* required R packages
+
 ```R
- 
+library("sp")
+library("rgdal")
+library("RColorBrewer")
 ```
 
+* Dockter in action:
+
+```bash
+$ dockter compile geoproj
+```
+
+* created files:
+
+```bash
+.Dockerfile
+.DESCRIPTION
+```
 
 ???
 In Stencila we developed a tool called Dockter to help researchers create Docker containers. Dockter generates the Dockerfile directly
@@ -65,6 +115,11 @@ from the source code used in the research document. You can inspect the generate
 
 ---
 ###  Dockter who
+
+```bash
+$ dockter who
+$
+```
 
 
 ???
