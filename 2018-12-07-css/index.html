@@ -106,15 +106,7 @@ from the source code used in the research document. You can inspect the generate
 ---
 ###  Dockter who
 
-```bash
-$ dockter who
-Roger Bivand (rgdal, sp), Tim Keitt (rgdal), Barry Rowlingson (rgdal), ....
-```
-
-- credit where credit is due
-- capturing metadata
-- `schema.org` compliant
-
+Capturing `schema.org` compliant metadata
 
 ```json-ld
   "@context": "https://stencila.github.io/schema/context.jsonld",
@@ -140,6 +132,13 @@ Roger Bivand (rgdal, sp), Tim Keitt (rgdal), Barry Rowlingson (rgdal), ....
             ...
 ```
 
+Credit where credit is due!
+
+```bash
+$ dockter who
+Roger Bivand (rgdal, sp), Tim Keitt (rgdal), Barry Rowlingson (rgdal), ....
+```
+
 
 ???
 we leverage the fact that we generate a JSON-LD document with all the software requirements for a project, 
@@ -162,10 +161,8 @@ geoproj-nix              4e1172557167        7 days ago          125MB
 
 Give us your feedback!
 
-- http://stenci.la
-- hello@stenci.la
-- Chat: https://gitter.im/stencila/stencila
-- Twitter: @stencila
+- https://github.com/stencila/dockter
+- https://community.stenci.la/t/dockter-for-nix/219
 
 ???
 Docker images can be quite large. We are working on getting Dockter to generate smaller images using Nix - which is a package manager. Nix not only is 
