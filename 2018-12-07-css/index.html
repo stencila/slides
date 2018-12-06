@@ -80,7 +80,6 @@ R project requiring two spatial data packages:
 # main.R
 library("sp")
 library("rgdal")
-
 ...
 ```
 
@@ -99,14 +98,14 @@ Dockter generates files which you can learn from / edit:
 ```
 
 ???
-In Stencila we developed a tool called Dockter to help researchers create Docker containers. Dockter generates the Dockerfile directly
+At Stencila we developed a tool called Dockter to help researchers create Docker containers. Dockter generates the Dockerfile directly
 from the source code used in the research document. You can inspect the generated Dockerfile and edit it manually. 
 
 
 ---
-###  Dockter who
+###  Dockter who?
 
-Capturing `schema.org` compliant metadata
+Capturing `schema.org` compliant metadata:
 
 ```json-ld
   "@context": "https://stencila.github.io/schema/context.jsonld",
@@ -149,24 +148,25 @@ including their authors. The who subcommand could be a "standing on the shoulder
 ---
 ###  Next steps
 
-Improving reproducibility & slimming images with Nix:
+- Improving reproducibility and slimming images with Nix:
 
 ```sh
 $ dockter compile --nix
-$ docker images
-REPOSITORY               IMAGE ID            CREATED             SIZE
-geoproj                  b252d691c3bc        7 days ago          1.1GB
-geoproj-nix              4e1172557167        7 days ago          125MB
 ```
 
-Give us your feedback!
+- Adding support for Jupyter notebook and JATS project source files
+
+
+###  Help wanted
+
+Try it out, give us your feedback!
 
 - https://github.com/stencila/dockter
 - https://community.stenci.la/t/dockter-for-nix/219
 
 ???
 Docker images can be quite large. We are working on getting Dockter to generate smaller images using Nix - which is a package manager. Nix not only is 
-smart enough to create smaller images but also captures 
+smart enough to create smaller images but also has a better way to define the dependencies between packages. 
 
     </textarea>
     <!-- End of Markdown slide show -->
