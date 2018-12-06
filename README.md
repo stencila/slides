@@ -6,6 +6,8 @@
 This repository has slides from various presentations about Stencila. To view the slides go to this index at https://stencila.github.io/slides/, 
 or click on the links below:
 
+- [`2018-12-07-css`](https://stencila.github.io/slides/2018-12-07-css): Reproducibility with Dockter, Code for Science & Society Community Call, 7 December 2017.
+
 - [`2017-11-17-ucla`](https://stencila.github.io/slides/2017-11-17-ucla): Stencila Sheets feature design workshop, University of California, Los Angeles, USA, 17 November 2017.
 
 - [`2017-11-16-nceas`](https://stencila.github.io/slides/2017-11-16-nceas): Stencila Sheets feature design workshop, National Centre for Ecological Analysis and Synthesis (NCEAS), Santa Barbara, USA, 16 November 2017.
