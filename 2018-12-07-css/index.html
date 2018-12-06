@@ -27,13 +27,12 @@ class: center, middle
 ---
 ### Complex reproducibility 
 
-- packages versions
-- system requirements
-- 
-
+Reproducible research can be tough: 
+- packages versions,
+- system requirements and dependencies,
+- capturing and curating metadata.
 
 ![](exec-doc.svg)
-
 
 ???
 True reproducible research is hard to achieve. Reproducible documents, including Stencila, contain much more than just text.
@@ -109,34 +108,90 @@ from the source code used in the research document. You can inspect the generate
 
 ```bash
 $ dockter who
-$
+Roger Bivand (rgdal, sp), Tim Keitt (rgdal), 
+   Barry Rowlingson (rgdal), Edzer Pebesma (sp)
+```
+
+- credit where credit is due
+- capturing metadata
+- `schema.org` compliant
+
+```js
+  "@context": "https://stencila.github.io/schema/context.jsonld",
+  "type": "SoftwareEnvironment",
+   ....
+      "softwareRequirements": [
+        {
+          "type": "SoftwarePackage",
+          "description": "Provides bindings to the 'Geospatial'... 
+          "name": "rgdal",
+          ...
+          "author": [
+            {
+              "type": "Person",
+              "name": "Roger Bivand",
+              "familyName": [
+                "Bivand"
+              ],
+              "givenName": [
+                "Roger"
+              ]
+            },
+            {
+              "type": "Person",
+              "name": "Tim Keitt",
+              "familyName": [
+                "Keitt"
+              ],
+              "givenName": [
+                "Tim"
+              ]
+            },
+            {
+              "type": "Person",
+              "name": "Barry Rowlingson",
+              "familyName": [
+                "Rowlingson"
+              ],
+              "givenName": [
+                "Barry"
+              ]
+            }
+          ],
+
+}
 ```
 
 
 ???
-This section below the question marks is for speaker notes.
-
+we leverage the fact that we generate a JSON-LD document with all the software requirements for a project, 
+including their authors. The who subcommand could be a "standing on the shoulders of giants" list of
+ the authors of the current project (if available) and all of the software packages it relies on.
 
 
 ---
 ###  Next steps
 
-Slimming images with Nix:
+Improving reproducibility & slimming images with Nix:
 
 ```sh
 $ dockter compile --nix
 $ docker images
 REPOSITORY               IMAGE ID            CREATED             SIZE
 geoproj                  b252d691c3bc        7 days ago          1.1GB
-geoproj-nix              4e1172557167        7 days ago          1.1GB
+geoproj-nix              4e1172557167        7 days ago          125MB
 ```
 
-Give us feedback!
+Give us your feedback!
 
-- 
+- http://stenci.la
+- hello@stenci.la
+- https://gitter.im/stencila/stencila
+- @stencila
 
 ???
-This section below the question marks is for speaker notes.
+Docker images can be quite large. We are working on getting Dockter to generate smaller images using Nix - which is a package manager. Nix not only is 
+smart enough to create smaller images but also captures 
 
     </textarea>
     <!-- End of Markdown slide show -->
