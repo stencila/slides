@@ -108,15 +108,15 @@ from the source code used in the research document. You can inspect the generate
 
 ```bash
 $ dockter who
-Roger Bivand (rgdal, sp), Tim Keitt (rgdal), 
-   Barry Rowlingson (rgdal), Edzer Pebesma (sp)
+Roger Bivand (rgdal, sp), Tim Keitt (rgdal), Barry Rowlingson (rgdal), ....
 ```
 
 - credit where credit is due
 - capturing metadata
 - `schema.org` compliant
 
-```js
+
+```json-ld
   "@context": "https://stencila.github.io/schema/context.jsonld",
   "type": "SoftwareEnvironment",
    ....
@@ -137,29 +137,7 @@ Roger Bivand (rgdal, sp), Tim Keitt (rgdal),
                 "Roger"
               ]
             },
-            {
-              "type": "Person",
-              "name": "Tim Keitt",
-              "familyName": [
-                "Keitt"
-              ],
-              "givenName": [
-                "Tim"
-              ]
-            },
-            {
-              "type": "Person",
-              "name": "Barry Rowlingson",
-              "familyName": [
-                "Rowlingson"
-              ],
-              "givenName": [
-                "Barry"
-              ]
-            }
-          ],
-
-}
+            ...
 ```
 
 
@@ -186,8 +164,8 @@ Give us your feedback!
 
 - http://stenci.la
 - hello@stenci.la
-- https://gitter.im/stencila/stencila
-- @stencila
+- Chat: https://gitter.im/stencila/stencila
+- Twitter: @stencila
 
 ???
 Docker images can be quite large. We are working on getting Dockter to generate smaller images using Nix - which is a package manager. Nix not only is 

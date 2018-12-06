@@ -25,3 +25,8 @@ a {
     text-align: left;
     line-height: 150%;
 }
+
+code.json-ld {
+    font-size: 0.75em;
+    line-height: 100%;
+}
