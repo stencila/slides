@@ -6,6 +6,8 @@
 This repository has slides from various presentations about Stencila. To view the slides go to this index at https://stencila.github.io/slides/, 
 or click on the links below:
 
+- [`2019-01-25-linuxconfau`](https://stencila.github.io/slides/2019-01-25-linuxconfau): Reproducibility with Dockter, Linux Conf AU 2019, 25 January 2019.
+
 - [`2018-12-07-css`](https://stencila.github.io/slides/2018-12-07-css): Reproducibility with Dockter, Code for Science & Society Community Call, 7 December 2017.
 
 - [`2017-11-17-ucla`](https://stencila.github.io/slides/2017-11-17-ucla): Stencila Sheets feature design workshop, University of California, Los Angeles, USA, 17 November 2017.
