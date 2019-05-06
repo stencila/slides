@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stencila</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="style.css"> 
+  </head>
+  <body>
+    <!-- Put your Markdown slide show in this textarea element -->
+    <textarea id="source">
+
+class: center, middle
+
+## Community Call
+
+<img src="logo-name.svg" width="300" />
+
+#### Zoom room https://zoom.us/j/655391807
+
+#### 6/7 May 2019
+
+<div>
+  <a href="https://twitter.com/stencila">@stencila</a>
+</div>
+
+<p style="position: absolute; bottom: 10px; font-size: 10px">Press <code>P</code> to switch to presenter mode</p>
+
+---
+### Agenda
+
+- **Ben Shaw** recent enhancements to Stencila Hub;
+- **Nokome Bentley** an update on Stencila Schema and Converters;
+- **Alex Ketch** work on Schema documentation that he has recently done;
+- **Jacqueline Wijaya** designs for a range of Stencila's upcoming products;
+- **Aleksandra Pawlik** a short summary of the recent presentation of Stencila at the Library Carpentry Community Call.
+
+
+---
+### Stencila Schema
+
+![](schema-pr-56.png)
+
+
+---
+### Stencila Converter
+
+![](convert-pr-42.png)
+
+---
+### Markdown to GDoc (via HTML)
+
+![](md-to-gdoc.svg)
+
+Issues and to-dos:
+
+- 💅 Ugly styles - a `gdoc-html` compiler that embeds simple styles into HTML
+- Some elements not handled: `Image`, `Footnote` etc
+- 💻 Code blocks and other chunks - generate RPNGs to go into HTML
+
+---
+### GDoc to Markdown (direct)
+
+![](gdoc-to-md.svg)
+
+Issues and to-dos:
+
+- 💅 Empty paragraphs (often used for spacing) should be ignored
+- ⚠ Host best to warn user of elements that were not converted (?)
+
+---
+### Excel to Stencila Schema YAML
+
+![](xlsx-to-yaml.svg)
+
+---
+### `datapackage.json` to Stencila Schema YAML
+
+![](datapackage-to-yaml.svg)
+
+---
+### Excel to Stencila Schema YAML
+
+![](xlsx-to-datapackage.svg)
+
+
+---
+### Help wanted!
+
+You can help by:
+
+- 🔎 Reviewing the PR for Schema text nodes: https://github.com/stencila/schema/pull/56
+
+- 🔎 Reviewing the PR for Converter text content: https://github.com/stencila/convert/pull/42
+
+- ✅ Testing the converter
+
+- Coming up with a better name for Converter:
+
+    - 🔗 "**Linder** the linked data compiler"
+    - 🌲 "**Arborist**, create and curate Stencila document trees"
+
+    </textarea>
+    <!-- End of Markdown slide show -->
+    <script src="remark-latest.min.js" type="text/javascript"></script>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        slideNumberFormat: ''
+      });
+    </script>
+  </body>
+</html>
