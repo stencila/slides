@@ -6,6 +6,8 @@
 This repository has slides from various presentations about Stencila. To view the slides go to this index at https://stencila.github.io/slides/, 
 or click on the links below:
 
+- [`2019-06-04-community-call`](https://stencila.github.io/slides/2019-06-04-community-call): Community Call, June 2019.
+
 - [`2019-05-07-community-call`](https://stencila.github.io/slides/2019-05-07-community-call): Community Call, May 2019.
 
 - [`2019-01-25-linuxconfau`](https://stencila.github.io/slides/2019-01-25-linuxconfau): Reproducibility with Dockter, Linux Conf AU 2019, Christchurch, New Zealand, 25 January 2019.
