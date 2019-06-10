@@ -30,6 +30,9 @@ a {
 .remark-slide-content.smaller {
     font-size: 26px;
 }
+.remark-slide-content.padding-1em {
+    padding: 1em;
+}
 .remark-slide-content h1,
 .remark-slide-content h2,
 .remark-slide-content h3,
