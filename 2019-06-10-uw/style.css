@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+body {
+    font-family: Nunito, Helvetica, sans;
+    color: #686868;
+}
+img {
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+}
+.centered {
+    display: block;
+    margin: 0 auto;
+}
+.note {
+    color: #777;
+    font-size: 0.75em;
+}
+.remark-code, .remark-inline-code {
+    font-family: 'Ubuntu Mono';
+    text-align: left;
+    line-height: 150%;
+}
+.remark-slide-content {
+    font-size: 30px;
+}
+.remark-slide-content.smaller {
+    font-size: 26px;
+}
+.remark-slide-content h1,
+.remark-slide-content h2,
+.remark-slide-content h3,
+.remark-slide-content h4 {
+    color: #c4c4c4;
+}
