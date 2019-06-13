@@ -6,6 +6,8 @@
 This repository has slides from various presentations about Stencila. To view the slides go to this index at https://stencila.github.io/slides/, 
 or click on the links below:
 
+- [`2019-06-11-uw-workshop`](https://stencila.github.io/slides/2019-06-11-uw-workshop): ["Writing reproducible & executable scientific papers with R & Python: a hands-on workshop"](https://escience.washington.edu/events/writing-reproducible-executable-scientific-papers-with-r-python-a-hands-on-workshop/), University of Washington's eScience Institute's, 11 June 2019.
+
 - [`2019-06-10-uw`](https://stencila.github.io/slides/2019-06-10-uw): ["Writing reproducible & executable scientific papers with R & Python: a hands-on workshop"](https://escience.washington.edu/events/writing-reproducible-executable-scientific-papers-with-r-python-a-hands-on-workshop/), University of Washington's eScience Institute's, 10 June 2019.
 
 - [`2019-06-04-community-call`](https://stencila.github.io/slides/2019-06-04-community-call): Community Call, June 2019.
