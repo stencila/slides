@@ -28,10 +28,10 @@ class: center, middle
 ---
 ### Agenda
 
-- **Ben Shaw**
-- **Nokome Bentley:** Encoda and Thema progress and roadmap updates
-- **Alex Ketch**
-- **Jacqueline Wijaya:** Hub redesign updates
+- **Ben Shaw:** Logga a new package for logging 🌲
+- **Alex Ketch:** Improving start-up performance in Encoda 🚗💨
+- **Jacqueline Wijaya:** Hub redesign updates 🎨
+- **Nokome Bentley:** Encoda and Thema progress and roadmap 📝
 
 ---
 class: center, middle
@@ -39,9 +39,58 @@ class: center, middle
 ## Ben
 
 ---
-class: center, middle
 
-## Nokome
+## Logga 🌲
+#### Emit log events from anywhere. Consistently.
+
+- We needed a way to solve the "Logging from a library" problem.
+
+- Other logging libraries exist (e.g Winston and Pino) but they are for the output of log messages rather than just generation.
+
+- Inspired by Python Logging Library and Java's Log4J. 
+
+- A logger can be created and logged to with impunity, it acts a sink until a handler is set up to output the log messages somewhere.
+
+- It uses events through NodeJS's global `process` object so the library and application code are completely decoupled.
+
+---
+
+Logga has a default handler that formats log data for human consumption on TTY devices
+
+![](logga.png)
+
+---
+
+... and as [ndjson](http://ndjson.org/) for machine consumption on non-TTY devices e.g log files
+
+```json
+{"time":"2019-07-02T21:19:24.872Z","tag":"example","level":3,"message":"This is line five.","stack":"Error\n    at Object.<anonymous> (/home/nokome/stencila/source/logga/example.js:21:5)\n    at Module._compile (internal/modules/cjs/loader.js:689:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)\n    at Module.load (internal/modules/cjs/loader.js:599:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:530:3)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)\n    at startup (internal/bootstrap/node.js:266:19)"}
+{"time":"2019-07-02T21:19:24.875Z","tag":"example","level":2,"message":"Everything is just fine.","stack":"Error\n    at Object.<anonymous> (/home/nokome/stencila/source/logga/example.js:22:5)\n    at Module._compile (internal/modules/cjs/loader.js:689:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)\n    at Module.load (internal/modules/cjs/loader.js:599:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:530:3)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)\n    at startup (internal/bootstrap/node.js:266:19)"}
+{"time":"2019-07-02T21:19:24.875Z","tag":"example","level":1,"message":"Oh, oh, not no much.","stack":"Error\n    at Object.<anonymous> (/home/nokome/stencila/source/logga/example.js:23:5)\n    at Module._compile (internal/modules/cjs/loader.js:689:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)\n    at Module.load (internal/modules/cjs/loader.js:599:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:530:3)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)\n    at startup (internal/bootstrap/node.js:266:19)"}
+{"time":"2019-07-02T21:19:24.875Z","tag":"example","level":0,"message":"Aaargh, an error!","stack":"Error\n    at Object.<anonymous> (/home/nokome/stencila/source/logga/example.js:24:5)\n    at Module._compile (internal/modules/cjs/loader.js:689:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)\n    at Module.load (internal/modules/cjs/loader.js:599:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:530:3)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)\n    at startup (internal/bootstrap/node.js:266:19)"}
+{"time":"2019-07-02T21:19:24.875Z","tag":"example","level":0,"message":"Woaaah something bad happened! I am an error object.","stack":"Error: I am an error object.\n    at Object.<anonymous> (/home/nokome/stencila/source/logga/example.js:27:9)\n    at Module._compile (internal/modules/cjs/loader.js:689:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)\n    at Module.load (internal/modules/cjs/loader.js:599:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:530:3)\n    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)\n    at startup (internal/bootstrap/node.js:266:19)\n    at bootstrapNodeJSCore (internal/bootstrap/node.js:596:3)"}
+```
+---
+
+Logga can be used with a log handling library e.g. Winston Pino.
+
+```javascript
+// In library, create a named logger
+const logger = getLogger('encoda')
+```
+
+```javascript
+// Handle the log messages in application code
+addHandler((data: LogData) => {
+    // Send off to log output function
+    winstonLogger.log(LogLevel[data.level], data.message);
+    
+    // or filter on tag
+    if (data.tag === 'encoda') {
+        // do something different
+    }
+})
+```
 
 ---
 class: center, middle
@@ -66,11 +115,110 @@ class: center, middle
 ![](hub-redesign.png)
 
 ---
+class: center, middle
+
+## Nokome
+
+---
+class: center, middle
+
+####  https://github.com/stencila/encoda
+
+![](encoda.png)
+
+---
+
+### `dar`: a codec for eLife document archives
+
+- Currently only `encode` function implemented
+- Encodes `Collection`, `Article` or `Datatable` node types
+- Encodes `Article`s as JATS XML (using `jats` codec)
+- Encodes `Datatable`s as CSV (using `csv` codec)
+
+A simple RMarkdown project
+
+```bash
+$ tree rmd-project
+rmd-project
+├── Portal_rodent_species.csv
+└── rodents.Rmd
+```
+
+Let's convert it to DAR
+
+```bash
+$ encoda convert rmd-project rmd-project.dar
+```
+
+---
+
+#### `rmd-project.dar`
+
+```bash
+$ tree rmd-project.dar
+rmd-project.dar
+├── d0-a0-33c775a76283b0bcfc86329b0e21f19b.csv
+├── d1.jats.xml
+└── manifest.xml
+```
+
+#### `manifest.xml`
+
+```xml
+&lt;dar>
+    &lt;documents>
+        &lt;document type="article" id="d1" path="d1.jats.xml">&lt;/document>
+    &lt;/documents>
+    &lt;assets>
+        &lt;asset id="d0-a0" type="text/csv" path="d0-a0-33c775a76283b0bcfc86329b0e21f19b.csv" sync="true">&lt;/asset>
+    &lt;/assets>
+&lt;/dar>
+```
+
+---
+
+### `dir`: a codec for directories
+
+- Decodes a directory to a (nested) `Collection` of `CreativeWork` nodes
+- Encodes a collection to a (nested) directory of files (defaults to `.html`)
+- Useful for publishing projects as HTML
+- In process of using it for publishing Encoda's docs on Github
+- Pattern for 'main' file can be specified e.g. `main.*`, `index.*`, `README.*`
+
+e.g. 
+
+```
+-── top
+    ├── a
+    │   ├── index.md -> index.html
+    ├── b
+    │   ├── README.ipynb -> index.html
+    └── c
+        └── main.docx  -> index.html
+```
+
+---
+class: center, middle
+
+####  https://github.com/stencila/thema
+
+![](thema.png)
+
+---
+class: center, middle
+
+
+![](ipynb-html.png)
+
+---
+class: center, middle
+
 ### Help wanted!
 
-You can help by:
+📬 Sign up to [become a Stencila Hub Beta Tester](https://forms.gle/s1zbDL3fEdcyW5Zf6)
 
-- 📬 Sign up to [become a Stencila Hub Beta Tester](https://forms.gle/s1zbDL3fEdcyW5Zf6)
+Send us ideas 🤔, examples 💡, bug reports 🐛, documentation 📖, code 💻, questions 💬 on any of our Github repos https://github.com/stencila
+
 
 
 
