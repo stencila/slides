@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono);
+
+body {
+    font-family: Nunito, Helvetica, sans;
+    color: #686868;
+}
+img {
+    max-width: 100%;
+    max-height: 50vh;
+}
+a {
+    text-decoration: none;
+}
+.centered {
+    display: block;
+    margin: 0 auto;
+}
+.note {
+    color: #777;
+    font-size: 0.75em;
+}
+.remark-code, .remark-inline-code {
+    font-family: 'Ubuntu Mono';
+    text-align: left;
+    line-height: 150%;
+}
