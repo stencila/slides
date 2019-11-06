@@ -6,8 +6,14 @@
 This repository has slides from various presentations about Stencila. To view the slides go to this index at https://stencila.github.io/slides/, 
 or click on the links below:
 
-- [`2019-08-07-community-call`](https://stencila.github.io/slides/2019-08-07-community-call): Community Call, August 2019.
-- 
+- [`2019-11-06-community-call`](https://docs.google.com/presentation/d/1jaYZkLqjGSPdWfKIUNIBpAgO-IEru_IDXc5M-8ZM2cA/edit?usp=sharing): Community Call, November 2019.
+
+- [`2019-10-08-community-call`](https://docs.google.com/presentation/d/1mFQEOhx2NtRP4pJ9HVmYT96QX5stfMV1SZs19QVCkn0/edit?usp=sharing): Community Call, October 2019.
+
+- [`2019-09-04-community-call`](https://docs.google.com/presentation/d/19vgV_rILPeAPYH6XCz0HtNUCz7OTY7JxJcBs7vpapHk/edit?usp=sharing): Community Call, September 2019.
+ 
+- [`2019-08-07-community-call`](https://docs.google.com/presentation/d/1ylrseOStpP2GQOJ9Ytja2k-oQeXxT-cYX17UaPWXZFY/edit?usp=sharing): Community Call, August 2019.
+ 
 - [`2019-07-04-community-call`](https://stencila.github.io/slides/2019-07-04-community-call): Community Call, July 2019.
 
 - [`2019-06-11-uw-workshop`](https://stencila.github.io/slides/2019-06-11-uw-workshop): ["Writing reproducible & executable scientific papers with R & Python: a hands-on workshop"](https://escience.washington.edu/events/writing-reproducible-executable-scientific-papers-with-r-python-a-hands-on-workshop/), University of Washington's eScience Institute's, 11 June 2019.
